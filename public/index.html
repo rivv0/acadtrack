@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AcadTrack - Student Management</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>AcadTrack - Student Management</h1>
+
+  <!-- Students Section -->
+  <section>
+    <h2>Students</h2>
+    <form id="studentForm">
+      <input type="text" id="name" placeholder="Name" required>
+      <input type="text" id="enrollment_number" placeholder="Enrollment Number" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="text" id="phone_number" placeholder="Phone Number" required>
+      <button type="submit">Add Student</button>
+    </form>
+    <table id="studentTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Enrollment Number</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Rows will be populated dynamically -->
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Courses Section -->
+  <section>
+    <h2>Courses</h2>
+    <form id="courseForm">
+      <input type="text" id="course_name" placeholder="Course Name" required>
+      <input type="number" id="credits" placeholder="Credits" required>
+      <input type="text" id="instructor_name" placeholder="Instructor Name" required>
+      <input type="number" id="semester" placeholder="Semester" required>
+      <button type="submit">Add Course</button>
+    </form>
+    <table id="courseTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Course Name</th>
+          <th>Credits</th>
+          <th>Instructor Name</th>
+          <th>Semester</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Rows will be populated dynamically -->
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Grades Section -->
+  <section>
+    <h2>Grades</h2>
+    <form id="gradeForm">
+      <input type="text" id="evaluation_type" placeholder="Evaluation Type" required>
+      <input type="number" id="total_marks" placeholder="Total Marks" required>
+      <input type="number" id="course_id" placeholder="Course ID" required>
+      <input type="number" id="marks_obtained" placeholder="Marks Obtained" required>
+      <input type="text" id="grade" placeholder="Grade" required>
+      <button type="submit">Add Grade</button>
+    </form>
+    <table id="gradeTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Evaluation Type</th>
+          <th>Total Marks</th>
+          <th>Course ID</th>
+          <th>Marks Obtained</th>
+          <th>Grade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Rows will be populated dynamically -->
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Assignments Section -->
+  <section>
+    <h2>Assignments</h2>
+    <form id="assignmentForm">
+      <input type="text" id="assignment_title" placeholder="Assignment Title" required>
+      <input type="number" id="course_id" placeholder="Course ID" required>
+      <input type="date" id="submission_date" placeholder="Submission Date" required>
+      <input type="number" id="marks_assigned" placeholder="Marks Assigned" required>
+      <select id="status" required>
+        <option value="Completed">Completed</option>
+        <option value="Pending">Pending</option>
+      </select>
+      <button type="submit">Add Assignment</button>
+    </form>
+    <table id="assignmentTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Assignment Title</th>
+          <th>Course ID</th>
+          <th>Submission Date</th>
+          <th>Marks Assigned</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Rows will be populated dynamically -->
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Exams Section -->
+  <section>
+    <h2>Exams</h2>
+    <form id="examForm">
+      <input type="text" id="exam_type" placeholder="Exam Type" required>
+      <input type="number" id="course_id" placeholder="Course ID" required>
+      <input type="date" id="exam_date" placeholder="Exam Date" required>
+      <input type="number" id="total_marks" placeholder="Total Marks" required>
+      <input type="number" id="marks_obtained" placeholder="Marks Obtained" required>
+      <button type="submit">Add Exam</button>
+    </form>
+    <table id="examTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Exam Type</th>
+          <th>Course ID</th>
+          <th>Exam Date</th>
+          <th>Total Marks</th>
+          <th>Marks Obtained</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Rows will be populated dynamically -->
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Skills Section -->
+  <section>
+    <h2>Skills</h2>
+    <form id="skillForm">
+      <input type="text" id="skill_name" placeholder="Skill Name" required>
+      <input type="number" id="hours_practiced" placeholder="Hours Practiced" required>
+      <input type="text" id="proficiency_level" placeholder="Proficiency Level" required>
+      <input type="text" id="learning_resources" placeholder="Learning Resources" required>
+      <select id="certification_status" required>
+        <option value="Certified">Certified</option>
+        <option value="Not Certified">Not Certified</option>
+      </select>
+      <button type="submit">Add Skill</button>
+    </form>
+    <table id="skillTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Skill Name</th>
+          <th>Hours Practiced</th>
+          <th>Proficiency Level</th>
+          <th>Learning Resources</th>
+          <th>Certification Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Rows will be populated dynamically -->
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Projects Section -->
+  <section>
+    <h2>Projects</h2>
+    <form id="projectForm">
+      <input type="text" id="project_guide" placeholder="Project Guide" required>
+      <input type="text" id="project_title" placeholder="Project Title" required>
+      <textarea id="description" placeholder="Description" required></textarea>
+      <input type="text" id="technologies_used" placeholder="Technologies Used" required>
+      <select id="completion_status" required>
+        <option value="Ongoing">Ongoing</option>
+        <option value="Completed">Completed</option>
+      </select>
+      <button type="submit">Add Project</button>
+    </form>
+    <table id="projectTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Project Guide</th>
+          <th>Project Title</th>
+          <th>Description</th>
+          <th>Technologies Used</th>
+          <th>Completion Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Rows will be populated dynamically -->
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Time Management Section -->
+  <section>
+    <h2>Time Management</h2>
+    <form id="timeManagementForm">
+      <input type="text" id="task_name" placeholder="Task Name" required>
+      <select id="priority_level" required>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+      </select>
+      <input type="text" id="activity_type" placeholder="Activity Type" required>
+      <input type="number" id="duration" placeholder="Duration (hours)" required>
+      <input type="date" id="deadline" placeholder="Deadline" required>
+      <button type="submit">Add Task</button>
+    </form>
+    <table id="timeManagementTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Task Name</th>
+          <th>Priority Level</th>
+          <th>Activity Type</th>
+          <th>Duration</th>
+          <th>Deadline</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Rows will be populated dynamically -->
+      </tbody>
+    </table>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

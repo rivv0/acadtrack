@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AcadTrack</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    form {
+      margin-bottom: 20px;
+    }
+    input {
+      display: block;
+      margin-bottom: 10px;
+      padding: 8px;
+      width: 300px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <h1>AcadTrack - Student Management</h1>
+
+  <!-- Form to add a new student -->
+  <form id="studentForm">
+    <input type="text" id="name" placeholder="Name" required>
+    <input type="text" id="enrollment_number" placeholder="Enrollment Number" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="text" id="phone_number" placeholder="Phone Number" required>
+    <button type="submit">Add Student</button>
+  </form>
+
+  <!-- Table to display students -->
+  <h2>Student List</h2>
+  <table id="studentTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Enrollment Number</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Rows will be populated dynamically -->
+    </tbody>
+  </table>
+
+  <script>
+    // Fetch and display students
+    async function fetchStudents() {
+      const response = await fetch('/students');
+      const students = await response.json();
+      const tbody = document.querySelector('#studentTable tbody');
+      tbody.innerHTML = students.map(student => `
+        <tr>
+          <td>${student.Student_ID}</td>
+          <td>${student.Name}</td>
+          <td>${student.Enrollment_Number}</td>
+          <td>${student.Email}</td>
+          <td>${student.Phone_Number}</td>
+        </tr>
+      `).join('');
+    }
+
+    // Add a new student
+    document.getElementById('studentForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const student = {
+        name: document.getElementById('name').value,
+        enrollment_number: document.getElementById('enrollment_number').value,
+        email: document.getElementById('email').value,
+        phone_number: document.getElementById('phone_number').value
+      };
+      await fetch('/students', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(student)
+      });
+      fetchStudents(); // Refresh the student list
+    });
+
+    // Initial fetch
+    fetchStudents();
+  </script>
+</body>
+</html>
